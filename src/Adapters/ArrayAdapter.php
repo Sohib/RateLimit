@@ -21,17 +21,17 @@ class ArrayAdapter implements RateLimitQuery
     }
 
 
-    public function fetch($ip): int
+    public function fetch(string $ip): int
     {
         return $this->data[$ip] ?? 0;
     }
 
-    public function store($ip, $count): void
+    public function store(string $ip, int $count): void
     {
         $this->data[$ip] = $count;
     }
 
-    public function delete($ip): void
+    public function delete(string $ip): void
     {
         unset($this->data[$ip]);
     }
