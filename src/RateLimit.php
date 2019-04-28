@@ -3,17 +3,15 @@
  * Created by PhpStorm.
  * User: Sohib
  * Date: 2019-04-23
- * Time: 23:39
+ * Time: 23:39.
  */
 
 namespace Suhayb\RateLimit;
-
 
 class RateLimit
 {
     /** @var RateLimitQuery */
     private $data;
-
 
     public function __construct(RateLimitQuery $data)
     {

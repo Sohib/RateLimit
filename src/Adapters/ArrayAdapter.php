@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Sohib
  * Date: 2019-04-24
- * Time: 23:18
+ * Time: 23:18.
  */
 
 namespace Suhayb\RateLimit\Adapters;
@@ -19,7 +19,6 @@ class ArrayAdapter implements RateLimitQuery
     {
         $this->data = $data;
     }
-
 
     public function fetch(string $ip): int
     {
