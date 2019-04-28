@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Sohib
  * Date: 2019-04-24
- * Time: 23:17
+ * Time: 23:17.
  */
 
 namespace Suhayb\RateLimit;
