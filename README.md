@@ -12,26 +12,22 @@ composer require suhayb/ratelimit
 ## Usage
 
 ```php
-    # load from file or database
-    $data = []
+<?php
 
-    $rate = new \Suhayb\RateLimit\RateLimit(
-        new \Suhayb\RateLimit\Adapters\ArrayAdapter($data)
-    );
-    
-    $ip = request()->ip();
-    $count = $rate->check($ip);
-    
-    if ($count < 3) {
-        # update ratelimiter datastore
-        $rate->store($ip, $count + 1);
-        # show data
-    }
-    
-    # show error 
-    abort(404);
 
-    
+include_once 'vendor/autoload.php';
+
+use \Suhayb\RateLimit\RateLimit;
+use \Suhayb\RateLimit\Adapters\ArrayAdapter;
+
+# could be change to any data source compatible with RateLimitQuery interface 
+$dataSource = new ArrayAdapter([]);
+$rateLimit = new RateLimit(5, $dataSource);
+
+# threw Max Limit Exception on exceeding the limit  
+$rateLimit->run("10.11.13.1", function () {
+        # do anything
+});
     
 ```
 

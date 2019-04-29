@@ -8,13 +8,18 @@
 
 namespace Suhayb\RateLimit;
 
+use Suhayb\RateLimit\Exception\MaxLimitException;
+
 class RateLimit
 {
     /** @var RateLimitQuery */
     private $data;
+    /** @var int $limit */
+    private $maxLimit;
 
-    public function __construct(RateLimitQuery $data)
+    public function __construct(int $maxLimit, RateLimitQuery $data)
     {
+        $this->maxLimit = $maxLimit;
         $this->data = $data;
     }
 
@@ -36,5 +41,16 @@ class RateLimit
     public function all()
     {
         return $this->data->all();
+    }
+    
+    public function run($ip, $callback)
+    {
+        $count = $this->check($ip);
+        if ($count < $this->maxLimit) {
+            $this->store($ip, $count + 1);
+            $callback();
+        } else {
+            throw new MaxLimitException("${ip} has exceed $this->maxLimit");
+        }
     }
 }
