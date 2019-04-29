@@ -9,8 +9,8 @@
 namespace Suhayb\RateLimit\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Suhayb\RateLimit\Adapters\ArrayAdapter;
 use Suhayb\RateLimit\RateLimit;
+use Suhayb\RateLimit\Adapters\ArrayAdapter;
 
 class RateLimitTest extends TestCase
 {
@@ -60,9 +60,8 @@ class RateLimitTest extends TestCase
         ]));
 
         for ($i = 0; $i < 6; $i++) {
-            $rate->run("10.10.10.10", function () {
+            $rate->run('10.10.10.10', function () {
                 // do stuff
-
             });
         }
     }
