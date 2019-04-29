@@ -42,7 +42,7 @@ class RateLimit
     {
         return $this->data->all();
     }
-    
+
     public function run($ip, $callback)
     {
         $count = $this->check($ip);
