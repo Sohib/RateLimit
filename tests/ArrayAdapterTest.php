@@ -9,8 +9,8 @@
 namespace Suhayb\RateLimit\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Suhayb\RateLimit\Adapters\ArrayAdapter;
 use Suhayb\RateLimit\RateLimit;
+use Suhayb\RateLimit\Adapters\ArrayAdapter;
 
 class ArrayAdapterTest extends TestCase
 {

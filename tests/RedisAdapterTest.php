@@ -8,10 +8,10 @@
 
 namespace Suhayb\RateLimit\Tests;
 
-use PHPUnit\Framework\TestCase;
 use Predis\Client;
-use Suhayb\RateLimit\Adapters\RedisAdapter;
+use PHPUnit\Framework\TestCase;
 use Suhayb\RateLimit\RateLimit;
+use Suhayb\RateLimit\Adapters\RedisAdapter;
 
 class RedisAdapterTest extends TestCase
 {
@@ -20,7 +20,7 @@ class RedisAdapterTest extends TestCase
 
     protected function setUp()
     {
-        $client = new Client(getenv("REDIS_URI"));
+        $client = new Client(getenv('REDIS_URI'));
         $this->adapter = new RedisAdapter($client);
     }
 
