@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.1.0] - 2019-04-30
+### Added
+- Add new Redis Adapter depends on Predis
+
 ## [2.0.0] - 2019-04-30
 ### Added
 - Run method with better syntax for rate limiting
