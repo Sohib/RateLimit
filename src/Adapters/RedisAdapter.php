@@ -3,18 +3,17 @@
  * Created by PhpStorm.
  * User: Sohib
  * Date: 2019-05-01
- * Time: 20:52
+ * Time: 20:52.
  */
 
 namespace Suhayb\RateLimit\Adapters;
-
 
 use Predis\Client;
 use Suhayb\RateLimit\RateLimitQuery;
 
 class RedisAdapter implements RateLimitQuery
 {
-    /** @var  Client $client */
+    /** @var Client $client */
     private $client;
 
     public function __construct(Client $client)
@@ -40,9 +39,10 @@ class RedisAdapter implements RateLimitQuery
     public function all(): array
     {
         $data = [];
-        foreach ($this->client->keys("*") as $key) {
+        foreach ($this->client->keys('*') as $key) {
             $data[$key] = $this->client->get($key);
         }
+
         return $data;
     }
 }
