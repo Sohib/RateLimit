@@ -23,16 +23,6 @@ class RateLimit
         $this->data = $data;
     }
 
-    public function check($ip)
-    {
-        return $this->data->fetch($ip);
-    }
-
-    public function store($ip, $count)
-    {
-        $this->data->store($ip, $count);
-    }
-
     public function delete($ip)
     {
         $this->data->delete($ip);
@@ -52,5 +42,15 @@ class RateLimit
         } else {
             throw new MaxLimitException("${ip} has exceed $this->maxLimit");
         }
+    }
+
+    public function check($ip)
+    {
+        return $this->data->fetch($ip);
+    }
+
+    public function store($ip, $count)
+    {
+        $this->data->store($ip, $count);
     }
 }
